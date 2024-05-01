@@ -33,7 +33,12 @@ app.post('/api/blogs', (req, res) => {});
 
 app.patch('/api/blogs/:id', (req, res) => {});
 
-app.delete('/api/blogs/:id', (req, res) => {});
+app.delete('/api/blogs/:id', (req, res) => {
+  const { id } = req.params;
+  blogList_xx = blogList_xx.filter((item) => item.id != id);
+  console.log('blogList_xx', blogList_xx);
+  res.json({ msg: 'blog removed' });
+});
 
 /*
 ********************
